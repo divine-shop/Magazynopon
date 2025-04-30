@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magazyn Opon</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Magazyn Opon</h1>
+    <label><input type="checkbox" id="toggle-dark-mode" /> Tryb ciemny</label>
+  </header>
+
+  <main>
+    <nav>
+      <button onclick="showSection('form-section')">Dodaj oponę</button>
+      <button onclick="showSection('table-section')">Lista opon</button>
+      <button onclick="showSection('racks-section')">Regały</button>
+      <button onclick="showSection('history-section')">Historia</button>
+      <button onclick="openLabelView()">Drukuj etykiety</button>
+    </nav>
+
+    <section id="form-section" class="section">
+      <form id="tire-form">
+        <input name="nr_rej" placeholder="Numer rejestracyjny" required />
+        <input name="marka" placeholder="Marka" required />
+        <input name="model" placeholder="Model" required />
+        <input name="rozmiar" placeholder="Rozmiar" required />
+        <input name="wlasciciel" placeholder="Właściciel" />
+        <input name="ilosc" type="number" placeholder="Ilość sztuk" required />
+        <select name="regal"></select>
+        <input name="opis" placeholder="Dodatkowy opis" />
+        <button type="submit">Zapisz</button>
+      </form>
+    </section>
+
+    <section id="table-section" class="section hidden">
+      <input type="text" id="search" placeholder="Szukaj..." />
+      <table id="tire-table">
+        <thead>
+          <tr>
+            <th>Nr rej</th>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Rozmiar</th>
+            <th>Właściciel</th>
+            <th>Opcje</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="racks-section" class="section hidden">
+      <form id="rack-form">
+        <input name="nazwa" placeholder="Nazwa regału" required />
+        <input name="opis" placeholder="Opis regału" />
+        <input name="kolor" type="color" value="#cccccc" />
+        <button type="submit">Dodaj regał</button>
+      </form>
+      <ul id="rack-list"></ul>
+    </section>
+
+    <section id="history-section" class="section hidden">
+      <ul id="history-log"></ul>
+    </section>
+  </main>
+
+  <footer><small>Twórca: Tomasz Tomczak</small></footer>
+  <script src="script.js"></script>
+</body>
+</html>
